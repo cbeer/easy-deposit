@@ -1,0 +1,50 @@
+<%= bootstrap_form_for(@deposit) do |f| %>
+  <% if @deposit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@deposit.errors.count, "error") %> prohibited this deposit from being saved:</h2>
+
+      <ul>
+      <% @deposit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="form-group well">
+    <%= f.label :parts_files, 'Files', class: 'control-label' %>
+    <%= f.attachment_field :parts_files, multiple: true, class: 'form-control' %>
+  </div>
+
+  <hr />
+
+  <div role="tabpanel">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><%= link_to 'Citation', '#citation', role: 'tab', data: { toggle: 'tab '}, 'aria-controls' => 'citation' %></li>
+      <li role="presentation"><%= link_to 'Metadata', '#metadata', role: 'tab', data: { toggle: 'tab '}, 'aria-controls' => 'metadata' %></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="citation">
+        <%= f.text_area :citation %>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="metadata">
+        <%= f.text_field :resource_type %>
+        <%= f.text_field :title %>
+        <%= f.text_field :author %>
+        <%= f.text_area :description %>
+        <%= f.text_field :date %>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="messages">...</div>
+      <div role="tabpanel" class="tab-pane" id="settings">...</div>
+    </div>
+
+  </div>
+
+  <div class="actions">
+    <%= f.primary %>
+  </div>
+<% end %>

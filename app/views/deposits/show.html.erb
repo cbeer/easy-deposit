@@ -1,0 +1,24 @@
+
+
+<p>
+  <strong>Title:</strong>
+  <%= @deposit.title %>
+</p>
+
+<p>
+  <strong>Metadata:</strong>
+  <%= @deposit.metadata %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @deposit.user %>
+</p>
+
+<p>
+  <strong>Parts:</strong>
+  <%= render @deposit.parts %>
+</p>
+
+<%= link_to 'Edit', edit_deposit_path(@deposit) %> |
+<%= link_to 'Back', deposits_path %>

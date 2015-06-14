@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= link_to(((deposit.title if deposit.title.present?) || 'Untitled'), deposit) %>
+  </div>
+
+  <div class="panel-body">
+    Files (<%= deposit.parts.size %>):
+    <ul>
+    <% deposit.parts.each do |part| %>
+      <li><%= link_to part.file_filename, attachment_url(part, :file) %> (<%= part.file_content_type %> <%= number_to_human_size part.file_size %>)</li>
+    <% end %>
+    </ul>
+
+    <pre><%= deposit.metadata %></pre>
+  </div>
+</div>

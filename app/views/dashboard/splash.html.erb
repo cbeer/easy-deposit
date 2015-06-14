@@ -1,0 +1,6 @@
+<%= render 'login_banner' unless current_user? %>
+
+<% if @deposits.any? %>
+  <h1>Your Deposits</h1>
+  <%= render @deposits %>
+<% end %>
