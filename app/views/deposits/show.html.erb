@@ -7,7 +7,12 @@
 
 <p>
   <strong>Metadata:</strong>
-  <%= @deposit.metadata %>
+  <dl class="dl-horizontal">
+  <% @deposit.metadata.each do |k, v| %>
+    <dt><%= k %></dt>
+    <dd><%= v %></dd>
+  <% end %>
+  </dl>
 </p>
 
 <p>

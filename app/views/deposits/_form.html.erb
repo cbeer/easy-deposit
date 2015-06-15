@@ -13,6 +13,13 @@
   
   <div class="form-group well">
     <%= f.label :parts_files, 'Files', class: 'control-label' %>
+    <% if f.object.parts.any? %>
+      <ul>
+      <% f.object.parts.each do |part| %>
+        <li><%= link_to part.file_filename, attachment_url(part, :file) %> (<%= part.file_content_type %> <%= number_to_human_size part.file_size %>)</li>
+      <% end %>
+      </ul>
+    <% end %>
     <%= f.attachment_field :parts_files, multiple: true, class: 'form-control' %>
   </div>
 
