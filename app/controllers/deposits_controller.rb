@@ -1,5 +1,6 @@
 class DepositsController < ApplicationController
   load_and_authorize_resource
+  before_action :set_deposit_user, only: [:create]
 
   # GET /deposits
   # GET /deposits.json
@@ -62,5 +63,9 @@ class DepositsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def deposit_params
     params.require(:deposit).permit(:title, :author, :date, :description, :resource_type, :citation, parts_files: [])
+  end
+
+  def set_deposit_user
+    @deposit.user = current_user
   end
 end

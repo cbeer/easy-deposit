@@ -2,6 +2,8 @@ class PartsController < ApplicationController
   load_and_authorize_resource :deposit
   load_and_authorize_resource through: :deposit
 
+  before_action :set_part_user, only: [:create]
+
   # GET /parts
   # GET /parts.json
   def index
@@ -63,5 +65,9 @@ class PartsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def part_params
     params.require(:part).permit(:file)
+  end
+
+  def set_deposit_user
+    @part.user = current_user
   end
 end

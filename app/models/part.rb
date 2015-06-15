@@ -3,6 +3,7 @@ require 'digest'
 class Part < ActiveRecord::Base
   attachment :file
   belongs_to :deposit
+  belongs_to :user
   serialize :metadata
 
   after_save :update_file_hash, if: :file_changed?

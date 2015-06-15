@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150614164622) do
 
   create_table "parts", force: :cascade do |t|
     t.integer  "deposit_id"
+    t.integer  "user_id"
     t.string   "file_id"
     t.string   "file_filename"
     t.string   "string"

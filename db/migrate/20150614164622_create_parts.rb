@@ -2,6 +2,7 @@ class CreateParts < ActiveRecord::Migration
   def change
     create_table :parts do |t|
       t.references :deposit
+      t.references :user
 
       t.string :file_id
 
