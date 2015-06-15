@@ -11,5 +11,15 @@
       <dd><%= v %></dd>
     <% end %>
     </dl>
+
+    <small class="pull-right">
+      Created at <%= l part.created_at, format: :short %>.
+      <% if part.created_at != part.updated_at %>
+        Last Updated <%= l part.updated_at, format: :short %>.
+      <% end %>
+      <% if part.user %>
+        Contributed by <%= part.user.email %>.
+      <% end %>
+    </small>
   </div>
 </div>

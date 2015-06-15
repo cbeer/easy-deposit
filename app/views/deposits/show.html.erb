@@ -1,9 +1,16 @@
+<div class="page-header">
+  <h1><%= @deposit.title %></h1>
+</div>
 
-
-<p>
-  <strong>Title:</strong>
-  <%= @deposit.title %>
-</p>
+<small class="pull-right">
+  Created at <%= l @deposit.created_at, format: :short %>.
+  <% if @deposit.created_at != @deposit.updated_at %>
+    Last Updated <%= l @deposit.updated_at, format: :short %>.
+  <% end %>
+  <% if @deposit.user %>
+    Contributed by <%= @deposit.user.email %>.
+  <% end %>
+</small>
 
 <p>
   <strong>Metadata:</strong>
@@ -13,11 +20,6 @@
     <dd><%= v %></dd>
   <% end %>
   </dl>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @deposit.user %>
 </p>
 
 <p>
