@@ -1,5 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
+    <%= image_tag Icon.for_filename(part.file_filename), class: 'pull-right' %>
     <%= link_to part.file_filename, attachment_url(part, :file) %> (<%= part.file_content_type %> <%= number_to_human_size part.file_size %>)
   </div>
 

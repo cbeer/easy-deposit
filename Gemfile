@@ -62,3 +62,4 @@ gem 'gravatarify'
 # gem 'tika_wrapper' # TODO: use tika_wrapper to work with services, instead of invoking the jar directly
 gem 'ruby_tika_app'
 gem 'anystyle-parser'
+gem 'rails-file-icons'
