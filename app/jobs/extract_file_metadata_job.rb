@@ -6,7 +6,7 @@ class ExtractFileMetadataJob < ActiveJob::Base
     begin
       rta = RubyTikaApp.new(tempfile.path)
 
-      metadata = rta.to_metadata.split("\n").map { |x| x.split(/:\s+/, 2) }.to_h
+      metadata = JSON.parse(rta.to_json)
       metadata[:text] = rta.to_text
 
       part.update_column(:metadata, metadata)
